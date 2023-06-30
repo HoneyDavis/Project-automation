@@ -10,6 +10,7 @@ import java.util.Set;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +27,6 @@ public class Collegepage {
 	By emailid=By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[1]/div/div/div[2]/div/form/div[1]/input");
 	By password=By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[1]/div/div/div[2]/div/form/div[2]/input");
 	By signin=By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[1]/div/div/div[2]/div/form/div[3]/div/button");
-	
 	By register=By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[1]/div/div/div[2]/div/div[2]/div[1]/div/button/span");
 	By name=By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[1]/div/div[2]/div[1]/div[3]/input[@placeholder='Enter Name']");
 	By gender=By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[1]/div/div[2]/div[2]/div[3]/select");
@@ -37,6 +37,7 @@ public class Collegepage {
 	By admin=By.xpath("//*[@id=\"menu-item-163\"]/span");
 	By arrow=By.xpath("//*[@id=\"menu-item-164\"]/span");
 	By management=By.xpath("//*[@id=\"menu-item-165\"]/a");
+	By search=By.xpath("//*[@id=\"inputEmail3\"]");
 	
 	
 	public Collegepage(WebDriver driver)
@@ -55,6 +56,9 @@ public class Collegepage {
 		
 		else
 			System.out.println("Text is not present");	
+		
+		driver.findElement(search).click();
+		driver.findElement(search).sendKeys("NAAC",Keys.ENTER);
 	}
 	
 	public void academics(String id,String pswd)
